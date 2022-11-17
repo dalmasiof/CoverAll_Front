@@ -1,0 +1,10 @@
+.clienteInfo--container{
+    display: flex;
+    justify-content: space-around;
+    padding-left: 20%;
+    padding-right: 20%;
+    mat-form-field{
+        width: 40%;
+    }
+}
+

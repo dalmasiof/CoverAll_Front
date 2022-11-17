@@ -1,0 +1,30 @@
+<mat-progress-bar *ngIf="isLoading" mode="indeterminate"></mat-progress-bar>
+<div *ngIf="pedidosCLiente.length == 0 && !isLoading" class="__pedidosontainer mat-elevation-z2">
+  Nao há pedidos realizados pelo cliente.
+</div>
+<div class="__pedidosontainer mat-elevation-z2" *ngFor="let ped of pedidosCLiente">
+  <div class="__pedido">
+    <div class="__fields" >
+      <mat-form-field>
+        <input matInput readonly [value]=ped.id placeholder="Número do Pedido" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput readonly [value]=ped.produtos[0].descricao placeholder="Título" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput readonly [value]=ped.totalAPagar placeholder="Preço" />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput readonly [value]=ped.statusEntrega placeholder="Previsão Entrega" />
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="__pedido --mais">
+      <button (click)="onBtnMaisClick(ped)" mat-icon-button matTooltip="Mais Detalhes">
+          <mat-icon>more_vert </mat-icon>
+      </button>
+  </div>
+</div>

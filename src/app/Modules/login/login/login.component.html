@@ -1,0 +1,43 @@
+<div class="login--container">
+  <mat-card class="--card">
+    <mat-card-content>
+      <div class="--logo">
+        <img src="assets/logoProt3.jpeg" />
+      </div>
+      <form [formGroup]="loginFormGroup" class="--inputs">
+        <mat-form-field>
+          <input formControlName="usuario" matInput placeholder="E-mail" />
+        </mat-form-field>
+        <mat-form-field>
+          <input type="password" formControlName="senha" matInput placeholder="Senha" />
+        </mat-form-field>
+
+        <span class="spanSubtitles" >
+          <a href="#" routerLink="/cliente/cadastro" style="position: fixed;">Cadastre-se agora!</a>
+          <span style="margin-left: auto">
+            <mat-spinner *ngIf="isLoading" diameter="27"></mat-spinner>
+            <span *ngIf="!isLoading">
+              <button
+                *ngIf="!loginFormGroup.invalid"
+                mat-raised-button
+                class="btn__Login"
+                (click)="btnLoginCLick()"
+              >
+                Login
+              </button>
+              <button
+                *ngIf="loginFormGroup.invalid"
+                mat-raised-button
+                class="btn__Login"
+                disabled=""
+              >
+                Login
+              </button>
+            </span>
+          </span>
+        </span>
+      </form>
+      <div class="--btnLogin"></div>
+    </mat-card-content>
+  </mat-card>
+</div>
